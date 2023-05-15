@@ -23,6 +23,8 @@ import {
       return this.authService.signIn(signInDto.username, signInDto.password);
     }
     
+    // We assign AuthGard making the profile Endpoint protected
+    // Meaning we can't access it without a valid token
     @UseGuards(AuthGuard)
     @Get('profile')
     getProfile(@Request() req) {

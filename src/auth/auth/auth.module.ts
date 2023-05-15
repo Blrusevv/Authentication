@@ -10,6 +10,8 @@ import { jwtConstants } from './constants';
 @Module({
   imports: [
     UsersModule,
+
+    // Making JwtModule global allows us not to import the module anywhere else
     JwtModule.register({
       global: true,
       secret: jwtConstants.secret,
@@ -19,6 +21,9 @@ import { jwtConstants } from './constants';
   providers: [
     AuthService,
     {
+
+      // This is to make AuthGard global so we don't need to assign
+      // UseGuards on each Request/Handler()
       provide: APP_GUARD,
       useClass: AuthGuard,
     },

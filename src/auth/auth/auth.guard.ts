@@ -24,6 +24,7 @@ import {
         return true;
       }
   
+      // Make the context into an HTTP and return in as an Object
       const request = context.switchToHttp().getRequest();
       const token = this.extractTokenFromHeader(request);
       if (!token) {

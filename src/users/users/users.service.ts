@@ -3,6 +3,7 @@ import { Injectable } from '@nestjs/common';
 // This should be a real class/interface representing a user entity
 export type User = any;
 
+// In this case it takes the part as a DataBase
 @Injectable()
 export class UsersService {
   private readonly users = [
